@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+}
+
+group = "org.msuo"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.luaj:luaj-jse:3.0.1'
+    api 'org.slf4j:slf4j-api:2.0.13'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+    testRuntimeOnly  'org.junit.platform:junit-platform-launcher:1.10.3'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
